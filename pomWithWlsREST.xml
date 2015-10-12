@@ -1,0 +1,297 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+
+	<groupId>com.oracle.samples</groupId>
+	<artifactId>oow14-hol9458</artifactId>
+	<version>1.0-SNAPSHOT</version>
+	<packaging>war</packaging>
+
+	<name>oow14-hol9458</name>
+
+	<properties>
+		<endorsed.dir>${project.build.directory}/endorsed</endorsed.dir>
+		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+		<wls-middlewareHome>/u01/data/domains/MyJCS_domain</wls-middlewareHome>
+		<wls-adminurl>t3://localhost:9001</wls-adminurl>
+		<wls-targets>MyJCS_cluster</wls-targets>
+		<wls-user>weblogic</wls-user>
+		<wls-password>JCSDem0#</wls-password>
+		<restEndpoint>https://129.191.2.14:7002/management/wls/latest/deployments/application</restEndpoint>
+		<deployment>target/oow14-hol9458-1.0-SNAPSHOT.war</deployment>
+		<deploymentName>oow14-hol9458-1.0-SNAPSHOT.war</deploymentName>
+
+		<!-- wls-targets>AdminServer</wls-targets> <wls-adminurl>t3://localhost:7001</wls-adminurl> 
+			<wls-password>welcome1</wls-password -->
+
+		<wls-name>${project.build.finalName}</wls-name>
+		<wls-source>${project.build.directory}/${project.build.finalName}.${project.packaging}</wls-source>
+	</properties>
+
+	<profiles>
+		<profile>
+			<id>default</id>
+			<activation>
+				<activeByDefault>true</activeByDefault>
+			</activation>
+			<build>
+
+			</build>
+		</profile>
+
+		<profile>
+			<id>create-datasource-local</id>
+			<properties>
+				<wls-name>${project.artifactId}-datasource</wls-name>
+				<wls-source>etc/jdbc/datasource-local-jdbc.xml</wls-source>
+			</properties>
+		</profile>
+
+		<profile>
+			<id>local</id>
+			<properties>
+				<wls-targets>AdminServer</wls-targets>
+				<wls-adminurl>t3://localhost:7001</wls-adminurl>
+				<wls-user>weblogic</wls-user>
+				<wls-password>welcome1</wls-password>
+			</properties>
+		</profile>
+
+		<profile>
+			<id>create-datasource-cloud</id>
+			<properties>
+				<wls-targets>oow14hol_server_1</wls-targets>
+				<wls-adminurl>t3://localhost:9001</wls-adminurl>
+				<wls-name>${project.artifactId}-datasource</wls-name>
+				<wls-source>etc/jdbc/datasource-cloud-jdbc.xml</wls-source>
+			</properties>
+		</profile>
+
+		<profile>
+			<id>cloud</id>
+			<properties>
+				<wls-targets>oow14hol_server_1</wls-targets>
+				<wls-adminurl>t3://localhost:9001</wls-adminurl>
+			</properties>
+		</profile>
+
+		<profile>
+			<id>hudson</id>
+			<properties>
+				<wls-targets>oow14hol_adminserver,oow14hol_server_1</wls-targets>
+				<wls-adminurl>t3://localhost:7002</wls-adminurl>
+				<wls-user>weblogic</wls-user>
+				<wls-password>welcome1</wls-password>
+			</properties>
+		</profile>
+	</profiles>
+
+	<dependencies>
+		<dependency>
+			<groupId>com.sun.jersey</groupId>
+			<artifactId>jersey-client</artifactId>
+			<version>1.19</version>
+		</dependency>
+		<dependency>
+			<groupId>com.sun.jersey.contribs</groupId>
+			<artifactId>jersey-multipart</artifactId>
+			<version>1.19</version>
+		</dependency>
+		<dependency>
+			<groupId>javax.mail</groupId>
+			<artifactId>mail</artifactId>
+			<version>1.4.5</version>
+		</dependency>
+		<dependency>
+			<groupId>org.eclipse.persistence</groupId>
+			<artifactId>javax.persistence</artifactId>
+			<version>2.0.5</version>
+			<scope>provided</scope>
+		</dependency>
+		<dependency>
+			<groupId>org.eclipse.persistence</groupId>
+			<artifactId>eclipselink</artifactId>
+			<version>2.4.2</version>
+			<scope>provided</scope>
+		</dependency>
+		<dependency>
+			<groupId>javax</groupId>
+			<artifactId>javaee-web-api</artifactId>
+			<version>6.0</version>
+			<scope>provided</scope>
+		</dependency>
+
+		<dependency>
+			<groupId>junit</groupId>
+			<artifactId>junit</artifactId>
+			<version>4.11</version>
+			<scope>test</scope>
+		</dependency>
+		<dependency>
+			<groupId>com.oracle.weblogic</groupId>
+			<artifactId>weblogic-server-pom</artifactId>
+			<version>12.1.2-0-0</version>
+			<type>pom</type>
+			<scope>provided</scope>
+		</dependency>
+	</dependencies>
+
+	<build>
+		<resources>
+			<resource>
+				<directory>src/main/resources</directory>
+			</resource>
+			<resource>
+				<directory>src/main/java</directory>
+				<includes>
+					<include>**</include>
+				</includes>
+				<excludes>
+					<exclude>**/*.java</exclude>
+				</excludes>
+			</resource>
+		</resources>
+		<plugins>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-compiler-plugin</artifactId>
+				<version>3.1</version>
+				<configuration>
+					<source>1.7</source>
+					<target>1.7</target>
+					<compilerArguments>
+						<endorseddirs>${endorsed.dir}</endorseddirs>
+					</compilerArguments>
+				</configuration>
+			</plugin>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-war-plugin</artifactId>
+				<version>2.4</version>
+			</plugin>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-dependency-plugin</artifactId>
+				<version>2.8</version>
+			</plugin>
+			<plugin>
+				<groupId>com.oracle.weblogic</groupId>
+				<artifactId>weblogic-maven-plugin</artifactId>
+				<version>12.1.2-0-0</version>
+				<configuration>
+					<adminurl>${wls-adminurl}</adminurl>
+					<user>${wls-user}</user>
+					<password>${wls-password}</password>
+					<source>${wls-source}</source>
+					<targets>${wls-targets}</targets>
+					<name>${wls-name}</name>
+					<upload>true</upload>
+					<verbose>true</verbose>
+				</configuration>
+				<executions>
+					<execution>
+						<id>wls-deploy</id>
+						<phase>install</phase>
+						<goals>
+							<goal>redeploy</goal>
+						</goals>
+						<configuration>
+							<adminurl>${wls-adminurl}</adminurl>
+							<user>${wls-user}</user>
+							<password>${wls-password}</password>
+							<source>${wls-source}</source>
+							<targets>${wls-targets}</targets>
+							<name>${wls-name}</name>
+							<upload>true</upload>
+							<verbose>true</verbose>
+						</configuration>
+					</execution>
+				</executions>
+			</plugin>
+			<plugin>
+				<artifactId>maven-antrun-plugin</artifactId>
+				<version>1.6</version>
+				<executions>
+					<execution>
+						<id>default-cli</id>
+						<phase>pre-integration-test</phase>
+						<configuration>
+							<target>
+								<exec executable="curl">
+									<arg value="-v" />
+									<arg value="-u" />
+									<arg value="weblogic:welcome1" />
+									<arg value="-H" />
+									<arg value="X-Requested-By:MyClient" />
+									<arg value="-H" />
+									<arg value="Accept:application/json" />
+									<arg value="-H" />
+									<arg value="Content-Type:multipart/form-data" />
+									<arg value="-F" />
+									<arg value="${model}" />
+									<arg value="-F" />
+									<arg value="deployment=@${deployment}" />
+									<arg value="-X" />
+									<arg value="POST" />
+									<arg
+										value="https://160.34.12.141:7002/management/wls/latest/deployments/application" />
+
+								</exec>
+							</target>
+						</configuration>
+						<goals>
+							<goal>run</goal>
+						</goals>
+					</execution>
+				</executions>
+			</plugin>
+
+
+			<plugin>
+				<groupId>org.codehaus.mojo</groupId>
+				<artifactId>exec-maven-plugin</artifactId>
+				<version>1.2</version>
+				<configuration>
+					<mainClass>com.oracle.cloud.demo.oe.rest.JerseyClientPost</mainClass>
+					<arguments>
+						<argument>${wls-user}</argument>
+						<argument>${wls-password}</argument>
+						<argument>${restEndpoint}</argument>
+						<argument>target/oow14-hol9458-1.0-SNAPSHOT.war</argument>
+						<argument>{ name: '${deploymentName}', targets: ['${wls-targets}'] }</argument>
+					</arguments>
+				</configuration>
+				<executions>
+					<execution>
+						<id>WLS-REST-DEPLOY</id>
+						<phase>WLS-REST-DEPLOY</phase>
+						<goals>
+							<goal>java</goal>
+						</goals>
+					</execution>
+				</executions>
+			</plugin>
+		</plugins>
+		<extensions>
+			<extension>
+				<groupId>org.apache.maven.wagon</groupId>
+				<artifactId>wagon-webdav-jackrabbit</artifactId>
+				<version>1.0-beta-7</version>
+			</extension>
+		</extensions>
+	</build>
+	<repositories>
+		<repository>
+			<id>remoteRepository</id>
+			<url>https://developer.us2.oraclecloud.com/profile/developer51671-usdevops62749/s/developer51671-usdevops62749_techco-cloud-demo/maven/</url>
+			<layout>default</layout>
+		</repository>
+	</repositories>
+	<pluginRepositories>
+		<pluginRepository>
+			<id>remoteRepository</id>
+			<url>https://developer.us2.oraclecloud.com/profile/developer51671-usdevops62749/s/developer51671-usdevops62749_techco-cloud-demo/maven/</url>
+			<layout>default</layout>
+		</pluginRepository>
+	</pluginRepositories>
+</project>
