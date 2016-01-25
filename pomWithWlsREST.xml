@@ -17,7 +17,7 @@
 		<wls-targets>MyJCS_cluster</wls-targets>
 		<wls-user>weblogic</wls-user>
 		<wls-password>JCSDem0#</wls-password>
-		<restEndpoint>https://129.191.2.14:7002/management/wls/latest/deployments/application</restEndpoint>
+		<restEndpoint>https://129.144.22.122:7002/management/wls/latest/deployments/application</restEndpoint>
 		<deployment>target/oow14-hol9458-1.0-SNAPSHOT.war</deployment>
 		<deploymentName>oow14-hol9458-1.0-SNAPSHOT.war</deploymentName>
 
