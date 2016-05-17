@@ -1,8 +1,8 @@
 # variables
 username = 'weblogic'
 password = 'JCSDem0#'
-URL='t3://myjcs2-wls-1:9001'
-domain='MyJCS2_domain'
+URL='t3://localhost:9002'
+domain='TechCoDomain'
 realm='myrealm'
 realm_path='/SecurityConfiguration/'+domain+'/Realms/'+realm
 datasourceName='OE'

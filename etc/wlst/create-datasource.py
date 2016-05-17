@@ -2,9 +2,9 @@ username = 'weblogic'
  
 password = 'JCSDem0#'
  
-URL='t3://myjcs2-wls-1:9001'
+URL='t3://localhost:9002'
 
-JDBCURL='jdbc:oracle:thin:@MyDB2:1521/PDB1.usoracle07633.oraclecloud.internal'
+JDBCURL='jdbc:oracle:thin:@TechCoDBCS:1521/DEMOS.jcsdemo009.oraclecloud.internal'
  
 connect(username,password,URL)
 edit()
@@ -38,7 +38,7 @@ cd('/JDBCSystemResources/OE/JDBCResource/OE/JDBCDataSourceParams/OE')
 cmo.setGlobalTransactionsProtocol('TwoPhaseCommit')
 
 cd('/JDBCSystemResources/OE')
-set('Targets',jarray.array([ObjectName('com.bea:Name=MyJCS2_adminserver,Type=Server'), ObjectName('com.bea:Name=MyJCS2_d_cluster,Type=Cluster')], ObjectName))
+set('Targets',jarray.array([ObjectName('com.bea:Name=TechCoDo_adminserver,Type=Server'), ObjectName('com.bea:Name=TechCoCluster,Type=Cluster')], ObjectName))
 
 
 activate()
