@@ -14,4 +14,5 @@
     <module id="jackson-mapper-asl"/>
     <module id="jackson-xc"/>
     <module id="asm"/>
+    <library path="server/lib/wseeclient.jar"/>
 </system-libraries>

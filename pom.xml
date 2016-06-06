@@ -3,24 +3,15 @@
 	<modelVersion>4.0.0</modelVersion>
 
 	<groupId>com.oracle.samples</groupId>
-	<artifactId>oow14-hol9458</artifactId>
+	<artifactId>oow16-hol9458</artifactId>
 	<version>1.0-SNAPSHOT</version>
 	<packaging>war</packaging>
 
-	<name>oow14-hol9458</name>
+	<name>oow16-hol9458</name>
 
 	<properties>
 		<endorsed.dir>${project.build.directory}/endorsed</endorsed.dir>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-		<wls-middlewareHome>/u01/data/domains/MyJCS_domain</wls-middlewareHome>
-		<wls-targets>MyJCS_cluster</wls-targets>
-		<wls-adminurl>t3://localhost:9001</wls-adminurl>
-		<wls-user>weblogic</wls-user>
-		<wls-password>Welcome2Cloud#</wls-password>
-
-		<!-- wls-targets>AdminServer</wls-targets> <wls-adminurl>t3://localhost:7001</wls-adminurl> 
-			<wls-password>welcome1</wls-password -->
-
 		<wls-name>${project.build.finalName}</wls-name>
 		<wls-source>${project.build.directory}/${project.build.finalName}.${project.packaging}</wls-source>
 	</properties>
@@ -47,18 +38,13 @@
 		<profile>
 			<id>local</id>
 			<properties>
-				<wls-targets>AdminServer</wls-targets>
-				<wls-adminurl>t3://localhost:7001</wls-adminurl>
-				<wls-user>weblogic</wls-user>
-				<wls-password>welcome1</wls-password>
 			</properties>
 		</profile>
 
 		<profile>
 			<id>create-datasource-cloud</id>
 			<properties>
-				<wls-targets>oow14hol_server_1</wls-targets>
-				<wls-adminurl>t3://localhost:9001</wls-adminurl>
+				<wls-targets>oow16hol_server_1</wls-targets>
 				<wls-name>${project.artifactId}-datasource</wls-name>
 				<wls-source>etc/jdbc/datasource-cloud-jdbc.xml</wls-source>
 			</properties>
@@ -67,18 +53,14 @@
 		<profile>
 			<id>cloud</id>
 			<properties>
-				<wls-targets>oow14hol_server_1</wls-targets>
-				<wls-adminurl>t3://localhost:9001</wls-adminurl>
-			</properties>
+				<wls-targets>oow16hol_server_1</wls-targets>
+				</properties>
 		</profile>
 
 		<profile>
 			<id>hudson</id>
 			<properties>
-				<wls-targets>oow14hol_adminserver,oow14hol_server_1</wls-targets>
-				<wls-adminurl>t3://localhost:7002</wls-adminurl>
-				<wls-user>weblogic</wls-user>
-				<wls-password>welcome1</wls-password>
+				<wls-targets>oow16hol_adminserver,oow16hol_server_1</wls-targets>
 			</properties>
 		</profile>
 	</profiles>
@@ -113,7 +95,7 @@
 		<dependency>
 			<groupId>com.oracle.weblogic</groupId>
 			<artifactId>weblogic-server-pom</artifactId>
-			<version>12.1.2-0-0</version>
+			<version>12.2.1-0-0</version>
 			<type>pom</type>
 			<scope>provided</scope>
 		</dependency>
@@ -160,7 +142,7 @@
 			<plugin>
 				<groupId>com.oracle.weblogic</groupId>
 				<artifactId>weblogic-maven-plugin</artifactId>
-				<version>12.1.2-0-0</version>
+				<version>12.2.1-0-0</version>
 				<configuration>
 					<adminurl>${wls-adminurl}</adminurl>
 					<user>${wls-user}</user>
@@ -210,7 +192,7 @@
 			</plugin>
 		</plugins>
 	</build>
-		<repositories>
+	<!--repositories>
 		<repository>
 			<id>remoteRepository</id>
 			<url>https://developer.us2.oraclecloud.com/profile/developer51671-usdevops62749/s/developer51671-usdevops62749_techco-cloud-demo/maven/</url>
@@ -223,6 +205,6 @@
 			<url>https://developer.us2.oraclecloud.com/profile/developer51671-usdevops62749/s/developer51671-usdevops62749_techco-cloud-demo/maven/</url>
 			<layout>default</layout>
 		</pluginRepository>
-	</pluginRepositories>
+	</pluginRepositories-->
 
 </project>
