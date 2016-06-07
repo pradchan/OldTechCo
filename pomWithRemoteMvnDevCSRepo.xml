@@ -54,7 +54,7 @@
 			<id>cloud</id>
 			<properties>
 				<wls-targets>TechCo-ECommerce_server_1</wls-targets>
-				</properties>
+			</properties>
 		</profile>
 
 		<profile>
@@ -191,20 +191,26 @@
 				</executions>
 			</plugin>
 		</plugins>
+		<extensions>
+			<extension>
+				<artifactId>wagon-webdav-jackrabbit</artifactId>
+				<groupId>org.apache.maven.wagon</groupId>
+				<version>1.0-beta-7</version>
+			</extension>
+		</extensions>
 	</build>
-	<!-- repositories>
+	<repositories>
 		<repository>
 			<id>remoteMavenRepository</id>
-			<url>https://developer.us2.oraclecloud.com/profile/developertrial2849-gse00000277/s/developertrial2849-gse00000277_techcoappgold/maven/</url>
+			<url>dav:https://developer.us2.oraclecloud.com/profile/developertrial2849-gse00000277/s/developertrial2849-gse00000277_techcoappgold/maven/</url>
 			<layout>default</layout>
 		</repository>
 	</repositories>
 	<pluginRepositories>
 		<pluginRepository>
 			<id>remoteMavenRepository</id>
-			<url>https://developer.us2.oraclecloud.com/profile/developertrial2849-gse00000277/s/developertrial2849-gse00000277_techcoappgold/maven/</url>
+			<url>dav:https://developer.us2.oraclecloud.com/profile/developertrial2849-gse00000277/s/developertrial2849-gse00000277_techcoappgold/maven/</url>
 			<layout>default</layout>
 		</pluginRepository>
-	</pluginRepositories-->
-
+	</pluginRepositories>
 </project>

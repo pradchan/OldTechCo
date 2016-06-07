@@ -179,63 +179,6 @@
 			</activation> <properties> <tomcatPath>/path/to/tomcat/instance</tomcatPath> 
 			</properties> </profile> -->
 
-
-		<profile>
-			<id>jboss-ga-repository</id>
-			<repositories>
-				<repository>
-					<id>jboss-ga-repository</id>
-					<url>http://maven.repository.redhat.com/techpreview/all</url>
-					<releases>
-						<enabled>true</enabled>
-					</releases>
-					<snapshots>
-						<enabled>false</enabled>
-					</snapshots>
-				</repository>
-			</repositories>
-			<pluginRepositories>
-				<pluginRepository>
-					<id>jboss-ga-plugin-repository</id>
-					<url>http://maven.repository.redhat.com/techpreview/all</url>
-					<releases>
-						<enabled>true</enabled>
-					</releases>
-					<snapshots>
-						<enabled>false</enabled>
-					</snapshots>
-				</pluginRepository>
-			</pluginRepositories>
-		</profile>
-		<profile>
-			<id>jboss-earlyaccess-repository</id>
-			<repositories>
-				<repository>
-					<id>jboss-earlyaccess-repository</id>
-					<url>http://maven.repository.redhat.com/earlyaccess/all/</url>
-					<releases>
-						<enabled>true</enabled>
-					</releases>
-					<snapshots>
-						<enabled>false</enabled>
-					</snapshots>
-				</repository>
-			</repositories>
-			<pluginRepositories>
-				<pluginRepository>
-					<id>jboss-earlyaccess-plugin-repository</id>
-					<url>http://maven.repository.redhat.com/earlyaccess/all/</url>
-					<releases>
-						<enabled>true</enabled>
-					</releases>
-					<snapshots>
-						<enabled>false</enabled>
-					</snapshots>
-				</pluginRepository>
-			</pluginRepositories>
-		</profile>
-
-
 		<profile>
 			<id>default</id>
 			<repositories>
@@ -258,8 +201,6 @@
 
 
 	<activeProfiles>
-		<activeProfile>jboss-ga-repository</activeProfile>
-		<activeProfile>jboss-earlyaccess-repository</activeProfile>
 		<activeProfile>default</activeProfile>
 	</activeProfiles>
 	
