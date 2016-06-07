@@ -89,9 +89,26 @@
 			<privateKey>/path/to/private/key</privateKey> <passphrase>optional; leave 
 			empty if not used.</passphrase> </server> -->
 		<server>
-			<id>remoteMavenRepository</id>
-			<username>devcs.user</username>
-			<password>{/sS2XTE4B7MHoXyminj4dNsmL8uIbzR2V3MHRewkaRA=}</password>
+			<id>maven.oracle.com</id>
+			<username>gse-admin_ww@oracle.com</username>
+			<password>{lU9JEMn+JA0HDs0tWztTg1YwtdF3Uwf/uwDNfKIikdI=}</password>
+			<configuration>
+				<basicAuthScope>
+					<host>ANY</host>
+					<port>ANY</port>
+					<realm>OAM 11g</realm>
+				</basicAuthScope>
+				<httpConfiguration>
+					<all>
+						<params>
+							<property>
+								<name>http.protocol.allow-circular-redirects</name>
+								<value>%b,true</value>
+							</property>
+						</params>
+					</all>
+				</httpConfiguration>
+			</configuration>
 		</server>
 	</servers>
 
@@ -162,12 +179,17 @@
 
 		<profile>
 			<id>default</id>
+			<activation>
+				<activeByDefault>true</activeByDefault>
+			</activation>
 			<repositories>
 				<repository>
-					<id>remoteMavenRepository</id>
-					<name>Remote Weblogic Maven Repository</name>
-					<url>dav:https://developer.us2.oraclecloud.com/profile/developertrial2849-gse00000277/s/developertrial2849-gse00000277_techcoappgold/maven/</url>
+					<id>maven.oracle.com</id>
+					<url>https://maven.oracle.com</url>
 					<layout>default</layout>
+					<releases>
+						<enabled>true</enabled>
+					</releases>
 				</repository>
 			</repositories>
 		</profile>
