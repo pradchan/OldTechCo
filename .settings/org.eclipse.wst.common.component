@@ -6,6 +6,6 @@
         <wb-resource deploy-path="/WEB-INF/classes" source-path="/src/main/resources"/>
         <wb-resource deploy-path="/WEB-INF/classes" source-path="/.apt_src"/>
         <property name="java-output-path" value="/oow14-hol9458/target/classes"/>
-        <property name="context-root" value="TechCo-ECommerce"/>
+        <property name="context-root" value="/"/>
     </wb-module>
 </project-modules>
