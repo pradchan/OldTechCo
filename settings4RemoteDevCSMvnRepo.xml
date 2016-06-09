@@ -62,22 +62,6 @@
     <!-- proxy> <id>optional</id> <active>true</active> <protocol>http</protocol> 
       <host>ch3-opc-proxy.usdc2.oraclecloud.com</host> <port>80</port> <nonProxyHosts>local.net|some.host.com</nonProxyHosts> 
       </proxy -->
-      
-   <proxy>
-      <active>true</active>
-      <protocol>http</protocol>
-      <host>ch3-opc-proxy.usdc2.oraclecloud.com</host>
-      <port>80</port>
-      <nonProxyHosts>localhost|*.developer.us2.oraclecloud.com|developer.us2.oraclecloud.com|grill.usdc2.oraclecloud.com|nuviaqinternal.us2.cloud.oracle.com|yum.usdc2.oraclecloud.com|192.0.0.192|*.developer.z12.usdc2.oraclecloud.com</nonProxyHosts>
-    </proxy>
-   <proxy>
-      <active>true</active>
-      <protocol>https</protocol>
-      <host>ch3-opc-proxy.usdc2.oraclecloud.com</host>
-      <port>80</port>
-      <nonProxyHosts>localhost|*.developer.us2.oraclecloud.com|developer.us2.oraclecloud.com|grill.usdc2.oraclecloud.com|nuviaqinternal.us2.cloud.oracle.com|yum.usdc2.oraclecloud.com|192.0.0.192|*.developer.z12.usdc2.oraclecloud.com</nonProxyHosts>
-    </proxy>      
-  </proxies>
 
   <!-- servers | This is a list of authentication profiles, keyed by the server-id 
     used within the system. | Authentication profiles can be used whenever maven 
@@ -171,7 +155,7 @@
         <repository>
           <id>remoteMavenRepository</id>
           <name>Remote Weblogic Maven Repository</name>
-          <url>dav:https://developer.us2.oraclecloud.com/profile/developertrial2849-gse00000277/s/developertrial2849-gse00000277_techcoappgold/maven/</url>
+          <url>https://developer.us2.oraclecloud.com/profile/developertrial2849-gse00000277/s/developertrial2849-gse00000277_techcoappgold/maven/</url>
           <layout>default</layout>
         </repository>
       </repositories>
