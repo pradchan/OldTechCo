@@ -81,14 +81,6 @@
       <id>remoteMavenRepository</id>
       <username>devcs.user</username>
       <password>{/sS2XTE4B7MHoXyminj4dNsmL8uIbzR2V3MHRewkaRA=}</password>
-      <configuration>
-         <httpHeaders>
-           <property>
-             <name>User-Agent</name>
-             <value>Internal-Build-System/1.0</value>
-           </property>
-         </httpHeaders>
-      </configuration>      
     </server>
   </servers>
 
