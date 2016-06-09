@@ -163,7 +163,7 @@
         <repository>
           <id>remoteMavenRepository</id>
           <name>Remote Weblogic Maven Repository</name>
-          <url>https://developer.us2.oraclecloud.com/profile/developertrial2849-gse00000277/s/developertrial2849-gse00000277_techcoappgold/maven/</url>
+          <url>dav:https://developer.us2.oraclecloud.com/profile/developertrial2849-gse00000277/s/developertrial2849-gse00000277_techcoappgold/maven/</url>
           <layout>default</layout>
         </repository>
       </repositories>
