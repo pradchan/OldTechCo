@@ -90,11 +90,14 @@
 
     <!-- Another sample, using keys to authenticate. <server> <id>siteServer</id> 
       <privateKey>/path/to/private/key</privateKey> <passphrase>optional; leave 
-      empty if not used.</passphrase> </server> -->
+      empty if not used.</passphrase> </server>
+	  <username>gse-admin_ww@oracle.com</username>
+      <password>{lU9JEMn+JA0HDs0tWztTg1YwtdF3Uwf/uwDNfKIikdI=}</password>
+	 -->
     <server>
       <id>maven.oracle.com</id>
-      <username>gse-admin_ww@oracle.com</username>
-      <password>{lU9JEMn+JA0HDs0tWztTg1YwtdF3Uwf/uwDNfKIikdI=}</password>
+      <username>gseadmin01_us@oracle.com</username>
+      <password>{EGy+qtnOCSUH98mRIhs6cbql1hEDmHb5MRWETimCbbU=}</password>
       <configuration>
         <basicAuthScope>
           <host>ANY</host>
