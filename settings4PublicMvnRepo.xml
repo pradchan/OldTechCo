@@ -94,10 +94,10 @@
 	  <username>gse-admin_ww@oracle.com</username>
       <password>{lU9JEMn+JA0HDs0tWztTg1YwtdF3Uwf/uwDNfKIikdI=}</password>
 	 -->
-    <server>
+     <server>
       <id>maven.oracle.com</id>
       <username>gseadmin01_us@oracle.com</username>
-      <password>{EGy+qtnOCSUH98mRIhs6cbql1hEDmHb5MRWETimCbbU=}</password>
+      <password>{7gIXCnpAKhsHn6/3ePlEe0WiF+cakH1Huj3Xp+ZzubA=}</password>
       <configuration>
         <basicAuthScope>
           <host>ANY</host>
@@ -116,6 +116,7 @@
         </httpConfiguration>
       </configuration>
     </server>
+
   </servers>
 
   <!-- mirrors | This is a list of mirrors to be used in downloading artifacts 

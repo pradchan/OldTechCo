@@ -90,28 +90,29 @@
 			<username>cosmin.tudor@oracle.com</username>
 			<password>JCSDem0#</password>
 		</server>
-		<server>
-			<id>maven.oracle.com</id>
-			<username>cosmin.tudor@oracle.com</username>
-			<password></password>
-			<configuration>
-				<basicAuthScope>
-					<host>ANY</host>
-					<port>ANY</port>
-					<realm>OAM 11g</realm>
-				</basicAuthScope>
-				<httpConfiguration>
-					<all>
-						<params>
-							<property>
-								<name>http.protocol.allow-circular-redirects</name>
-								<value>%b,true</value>
-							</property>
-						</params>
-					</all>
-				</httpConfiguration>
-			</configuration>
-		</server>
+    <server>
+      <id>maven.oracle.com</id>
+      <username>gseadmin01_us@oracle.com</username>
+      <password>{7gIXCnpAKhsHn6/3ePlEe0WiF+cakH1Huj3Xp+ZzubA=}</password>
+      <configuration>
+        <basicAuthScope>
+          <host>ANY</host>
+          <port>ANY</port>
+          <realm>OAM 11g</realm>
+        </basicAuthScope>
+        <httpConfiguration>
+          <all>
+            <params>
+              <property>
+                <name>http.protocol.allow-circular-redirects</name>
+                <value>%b,true</value>
+              </property>
+            </params>
+          </all>
+        </httpConfiguration>
+      </configuration>
+    </server>
+
 	</servers>
 
 	<!-- mirrors | This is a list of mirrors to be used in downloading artifacts 
